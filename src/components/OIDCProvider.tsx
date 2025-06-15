@@ -5,12 +5,12 @@ import { ReactNode } from "react";
 
 const oidcConfig = {
   authority:
-    `https://cognito-idp.${process.env.NEXT_PUBLIC_COGNITO_REGION}.amazonaws.com/${process.env.NEXT_PUBLIC_COGNITO_USER_POOL_ID}`,
-  client_id: process.env.NEXT_PUBLIC_COGNITO_CLIENT_ID!,
-  redirect_uri:
-    (typeof window !== "undefined" ? window.location.origin : "") + "/callback",
+    "https://cognito-idp.us-west-2.amazonaws.com/us-west-2_2fafEaDIB",
+  client_id: "1rdijil48c7vq90gjofs9r9n74",
+  redirect_uri: "http://localhost:3000/callback",
   response_type: "code",
-  scope: "openid email phone",
+  scope: "email openid phone",
+  post_logout_redirect_uri: "http://localhost:3000/signout",
 };
 
 export function OIDCProvider({ children }: { children: ReactNode }) {
