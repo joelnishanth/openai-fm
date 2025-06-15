@@ -54,7 +54,23 @@ For more information about text-to-speech using the OpenAI API, check out our [d
 
    This step is not needed to run the application and only affects the sharing feature.
 
-6. **Run the app:**
+6. **Configure Amazon Cognito:**
+
+   The application uses Amazon Cognito for authentication. Copy `.env.example`
+   to `.env` and fill in your user pool details:
+
+   ```bash
+   NEXT_PUBLIC_COGNITO_USER_POOL_ID=<YOUR_USER_POOL_ID>
+   NEXT_PUBLIC_COGNITO_CLIENT_ID=<YOUR_CLIENT_ID>
+   NEXT_PUBLIC_COGNITO_REGION=<YOUR_AWS_REGION>
+   NEXT_PUBLIC_COGNITO_DOMAIN=<YOUR_COGNITO_DOMAIN>
+   ```
+
+   Ensure your app client allows `http://localhost:3000/callback` as a callback
+   URL and `http://localhost:3000/signout` as a logout URL and includes the
+   `openid` and `email` scopes.
+
+7. **Run the app:**
 
    ```bash
    npm run dev
