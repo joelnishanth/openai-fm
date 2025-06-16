@@ -77,6 +77,7 @@ For more information about text-to-speech using the OpenAI API, check out our [d
    ```
 
    The app will be available at [`http://localhost:3000`](http://localhost:3000).
+   Visit [`/login`](http://localhost:3000/login) to sign in with Cognito.
 
 > [!NOTE]  
 > Be aware that if you deploy this app to a public server, you are responsible for any usage it may incur using your OpenAI API key.

@@ -1,14 +1,16 @@
 "use client";
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { signIn } from '@/lib/auth';
-
-
+import { useEffect } from "react";
 import { useAuth } from "react-oidc-context";
 
 export default function LoginPage() {
   const auth = useAuth();
+
+  useEffect(() => {
+    if (!auth.isLoading && !auth.isAuthenticated && !auth.error) {
+      auth.signinRedirect().catch(() => {});
+    }
+  }, [auth]);
 
   if (auth.isLoading) {
     return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
@@ -40,12 +42,7 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-custom-gray">
-      <button
-        onClick={() => auth.signinRedirect()}
-        className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-md transition"
-      >
-        Sign in
-      </button>
+      Redirecting to sign in...
     </div>
   );
 }
