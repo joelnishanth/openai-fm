@@ -105,3 +105,13 @@ You are welcome to open issues or submit PRs to improve this app, however, pleas
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
+
+## Local DMCA Backend
+
+This repository now includes a sample FastAPI backend to experiment with local DMCA protection for Etsy sellers. It contains three services exposed via Docker Compose:
+
+- **ListingContext** (`/listings`) stores product listings and computes fingerprints with Ollama.
+- **ScannerContext** (`/scan`) compares stored listings to find potential copyright violations.
+- **DMCAContext** (`/generate`) drafts takedown notices using a local LLM.
+
+Run `docker-compose up` to start all services locally. See `.env.example` for environment variables.
